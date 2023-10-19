@@ -1,7 +1,12 @@
+import PageHeader from "../Components/PageHeader";
+
 const AddProduct = () => {
   return (
     <div>
-      <h1>Add product page</h1>
+      <PageHeader
+        title="Add Product"
+        steps={[{ title: "Products", link: "/products" }]}
+      />
     </div>
   );
 };
