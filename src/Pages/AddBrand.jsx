@@ -1,13 +1,18 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import PageHeader from "../Components/PageHeader";
+import { apiURL } from "../Contexts/GlobalContext";
+import Swal from "sweetalert2";
 
 const AddBrand = () => {
   const [slug, setSlug] = useState("");
+  const [brands, setBrands] = useState([]);
 
   const onNameChange = (e) => {
     const input = e.target.value.toLowerCase();
     setSlug(input.split(" ").join("-"));
   };
+
+  const findResult = brands.find((brand) => brand.slug === slug);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -17,18 +22,55 @@ const AddBrand = () => {
     const image = form.image.value;
     const description = form.description.value;
 
-    const data = {
+    const brandData = {
       name,
       slug,
       image,
       description,
     };
 
-    console.log(data);
+    if (findResult) {
+      Swal.fire({
+        icon: "error",
+        title: "Brand is already exist.",
+        text: "You have have a brand with the same name. please try to add a different one.",
+      });
+    } else {
+      fetch(`${apiURL}/brands`, {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(brandData),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.insertedId) {
+            Swal.fire({
+              icon: "success",
+              title: "Brand added successfully!",
+              showConfirmButton: false,
+              showCloseButton: true,
+            });
+            form.reset();
+            setSlug("");
+          }
+        })
+        .catch((error) => console.error(error));
+    }
   };
 
+  useEffect(() => {
+    fetch(`${apiURL}/brands`)
+      .then((res) => res.json())
+      .then((data) => setBrands(data))
+      .catch((error) => console.error(error));
+  }, [slug]);
+
+  console.log(brands);
+
   return (
-    <div>
+    <>
       <PageHeader title="Add Brand" />
       <div className="py-16">
         <form
@@ -62,7 +104,7 @@ const AddBrand = () => {
               className="form-input"
               id="image"
               name="image"
-              placeholder="Brand Image"
+              placeholder="Image URL"
             />
           </div>
           <div className="form-group">
@@ -79,7 +121,7 @@ const AddBrand = () => {
           <button className="btn btn-primary w-full">Add brand</button>
         </form>
       </div>
-    </div>
+    </>
   );
 };
 

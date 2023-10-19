@@ -9,6 +9,7 @@ import AddBrand from "../Pages/AddBrand";
 import UpdateBrand from "../Pages/UpdateBrand";
 import Cart from "../Pages/Cart";
 import Profile from "../Pages/Profile";
+import AddType from "../Pages/AddType";
 
 const MainRouters = createBrowserRouter([
   {
@@ -32,7 +33,7 @@ const MainRouters = createBrowserRouter([
         element: <UpdateProduct />,
       },
       {
-        path: "/brand/:id",
+        path: "/brand/:url",
         element: <BrandDetails />,
       },
       {
@@ -40,8 +41,12 @@ const MainRouters = createBrowserRouter([
         element: <AddBrand />,
       },
       {
-        path: "/update-brand/:id",
+        path: "/update-brand/:url",
         element: <UpdateBrand />,
+      },
+      {
+        path: "/add-type",
+        element: <AddType />,
       },
       {
         path: "/cart",
