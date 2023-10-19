@@ -1,7 +1,11 @@
+import Navbar from "../Components/Navbar";
+import Topbar from "../Components/Topbar";
+
 const Header = () => {
   return (
     <header>
-      <h2>This is header</h2>
+      <Topbar />
+      <Navbar />
     </header>
   );
 };

@@ -1,3 +1,34 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Marcellus&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  p {
+    @apply text-text font-inter text-sm;
+  }
+  img {
+    @apply inline;
+  }
+}
+
+@layer components {
+  .container-area {
+    @apply container mx-auto px-5 xl:px-0;
+  }
+  .btn {
+    @apply flex gap-2 items-center justify-center font-primary uppercase font-light text-sm tracking-widest border border-primary px-7 py-3;
+  }
+  .btn-primary {
+    @apply hover:bg-primary hover:text-white;
+  }
+  .sub-heading {
+    @apply font-secondary tracking-[5px] uppercase text-lg;
+  }
+  .section-heading {
+    @apply font-primary tracking-widest text-4xl uppercase;
+  }
+}
+.active {
+  @apply text-secondary !important;
+}

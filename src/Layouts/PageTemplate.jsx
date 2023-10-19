@@ -6,7 +6,7 @@ const PageTemplate = () => {
   return (
     <>
       <Header />
-      <main>
+      <main className="min-h-[400px] bg-[#f3f3f3]">
         <Outlet />
       </main>
       <Footer />

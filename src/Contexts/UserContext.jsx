@@ -15,7 +15,7 @@ export const UserContext = createContext(null);
 const UserContextProvider = ({ children }) => {
   const [user, setUser] = useState({});
   const [loading, setLoading] = useState(true);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   // Sign up with email and password
   const signUp = (email, password) => {
@@ -39,11 +39,7 @@ const UserContextProvider = ({ children }) => {
   // Logout
   const logOut = () => {
     setLoading(true);
-    signOut(auth).then((res) => {
-      const user = res.user;
-      console.log(user);
-      navigate("/login");
-    });
+    return signOut(auth);
   };
 
   useEffect(() => {
