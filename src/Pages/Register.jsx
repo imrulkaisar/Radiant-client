@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { UserContext } from "../Contexts/UserContext";
 import Swal from "sweetalert2";
 import { apiURL } from "../Contexts/GlobalContext";
+import SocialLogin from "../Components/SocialLogin";
 
 const Register = () => {
   const { signUp, updateUser } = useContext(UserContext);
@@ -51,6 +52,7 @@ const Register = () => {
           name: name.value,
           email: email.value,
           photoURL: photoURL.value,
+          cartItems: [],
         };
 
         await fetch(`${apiURL}/users`, {
@@ -142,6 +144,9 @@ const Register = () => {
             Register
           </button>
         </form>
+        <div className="container-area pt-8 flex justify-center items-center gap-5">
+          <SocialLogin />
+        </div>
         <p className="text-center py-10">
           Already have an account? Please{" "}
           <Link

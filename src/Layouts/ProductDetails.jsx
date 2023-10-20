@@ -1,25 +1,39 @@
-import { useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import PageHeader from "../Components/PageHeader";
-import { useEffect } from "react";
-import { apiURL } from "../Contexts/GlobalContext";
 import { Link, useParams } from "react-router-dom";
 import Rating from "react-rating";
 import { AiFillStar, AiOutlineShoppingCart } from "react-icons/ai";
+import { UserContext } from "../Contexts/UserContext";
+import { apiURL } from "../Contexts/GlobalContext";
+import { DataContext } from "../Contexts/DataContext";
+import Swal from "sweetalert2";
 
 const ProductDetails = () => {
+  const { user } = useContext(UserContext);
   const { url } = useParams();
   const [product, setProduct] = useState([]);
   const [productBrand, setProductBrand] = useState({});
 
-  const { name, slug, image, brand, type, price, rating, description } =
+  const { cartItems, setCartItems } = useContext(DataContext);
+
+  const [dbUser, setDbUser] = useState({});
+
+  const { _id, name, slug, image, brand, type, price, rating, description } =
     product[0] || {};
+
+  // Retrieve cart items from local storage on component mount
+  useEffect(() => {
+    const storedCartItems = localStorage.getItem("cartItems");
+    if (storedCartItems) {
+      setCartItems(JSON.parse(storedCartItems));
+    }
+  }, []);
 
   useEffect(() => {
     fetch(`${apiURL}/products/${url}`)
       .then((res) => res.json())
       .then((data) => {
         setProduct(data);
-        // Fetch productBrand data here
         fetch(`${apiURL}/brand/${data[0].brand}`)
           .then((res) => res.json())
           .then((brandData) => setProductBrand(brandData[0]))
@@ -28,9 +42,61 @@ const ProductDetails = () => {
       .catch((error) => console.error(error));
   }, [url]);
 
-  const handleAddToCart = () => {
-    console.log("added on the cart");
+  useEffect(() => {
+    fetch(`${apiURL}/users/${user.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setDbUser(data[0]);
+        if (dbUser.cartItems) {
+          setCartItems([...dbUser.cartItems]);
+        }
+      });
+  }, [user.email]);
+
+  const handleAddToCart = (id) => {
+    if (!cartItems.includes(id)) {
+      const updatedCartItems = [...cartItems, id];
+
+      fetch(`${apiURL}/users`, {
+        method: "PATCH",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({
+          email: dbUser.email,
+          cartItems: updatedCartItems,
+        }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.modifiedCount) {
+            Swal.fire({
+              icon: "success",
+              title: "Product Added",
+              showCloseButton: true,
+              showConfirmButton: false,
+              toast: true,
+              timer: 3000,
+            });
+            setCartItems(updatedCartItems);
+          }
+        })
+        .catch((error) => console.error(error));
+
+      // Store the updated cart items in local storage
+      localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "Product already in the cart",
+        showCloseButton: true,
+        showConfirmButton: false,
+        toast: true,
+        timer: 2000,
+      });
+    }
   };
+
   return (
     <>
       <PageHeader
@@ -69,7 +135,10 @@ const ProductDetails = () => {
                 ${price}
               </p>
               <p className="text-sm text-green-600">12 products in stock</p>
-              <button onClick={handleAddToCart} className="btn btn-secondary">
+              <button
+                onClick={() => handleAddToCart(_id)}
+                className="btn btn-secondary"
+              >
                 <AiOutlineShoppingCart /> Add to cart
               </button>
             </div>

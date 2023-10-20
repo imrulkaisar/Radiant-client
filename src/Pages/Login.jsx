@@ -2,6 +2,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import PageHeader from "../Components/PageHeader";
 import { useContext } from "react";
 import { UserContext } from "../Contexts/UserContext";
+import Swal from "sweetalert2";
+import SocialLogin from "../Components/SocialLogin";
 
 const Login = () => {
   const { login } = useContext(UserContext);
@@ -20,7 +22,16 @@ const Login = () => {
         console.log(res.user.email, "logged in successfully!");
         navigate(state ? state : "/profile");
       })
-      .catch((error) => console.error(error));
+      .catch((error) => {
+        console.error(error);
+        Swal.fire({
+          icon: "error",
+          title: "Something wrong!",
+          text: error.message,
+          showConfirmButton: false,
+          showCloseButton: true,
+        });
+      });
   };
   return (
     <>
@@ -58,6 +69,9 @@ const Login = () => {
             Login
           </button>
         </form>
+        <div className="container-area pt-8 flex justify-center items-center gap-5">
+          <SocialLogin />
+        </div>
         <p className="text-center py-10">
           Don't have an account? Please{" "}
           <Link

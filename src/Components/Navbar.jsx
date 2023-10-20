@@ -1,18 +1,22 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { FiUser, FiShoppingCart, FiPlusCircle } from "react-icons/fi";
 import Logo from "./Logo";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { UserContext } from "../Contexts/UserContext";
+import { DataContext } from "../Contexts/DataContext";
 
 const Navbar = () => {
   const { user, logOut } = useContext(UserContext);
   const { accessToken, displayName, photoURL, email } = user || {};
   const navigate = useNavigate();
 
+  const { cartItems } = useContext(DataContext);
+
   const handleLogOut = () => {
     logOut()
       .then((res) => {
         console.log("Logged out successfully!");
+        localStorage.removeItem("cartItems");
         navigate("/login");
       })
       .catch((error) => console.error(error));
@@ -44,7 +48,7 @@ const Navbar = () => {
             <FiShoppingCart className="text-2xl" />
           </Link>
           <span className="absolute -top-3 -right-2 bg-secondary px-1 rounded-full text-sm">
-            0
+            {cartItems.length}
           </span>
         </div>
         {accessToken ? (

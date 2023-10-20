@@ -87,7 +87,11 @@ const MainRouters = createBrowserRouter([
       },
       {
         path: "/cart",
-        element: <Cart />,
+        element: (
+          <PrivateRouter>
+            <Cart />
+          </PrivateRouter>
+        ),
       },
       {
         path: "/profile",

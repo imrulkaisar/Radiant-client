@@ -17,6 +17,7 @@ const Profile = () => {
     logOut()
       .then((res) => {
         console.log("Logged out successfully!");
+        localStorage.removeItem("cartItems");
         navigate("/login");
       })
       .catch((error) => console.error(error));
