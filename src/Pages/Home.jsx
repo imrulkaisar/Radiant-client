@@ -5,16 +5,27 @@ import Testimonials from "../Components/TestimonialSlider/Testimonials";
 
 import { useState } from "react";
 import { apiURL } from "../Contexts/GlobalContext";
+import ProductsArchive from "../Components/ProductsArchive";
 
 const Home = () => {
   const [brands, setBrands] = useState([]);
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
     fetch(`${apiURL}/brands`)
       .then((res) => res.json())
       .then((data) => setBrands(data))
       .catch((error) => console.error(error));
+
+    // product fetching
+    fetch(`${apiURL}/products`)
+      .then((res) => res.json())
+      .then((data) => setProducts(data))
+      .catch((error) => console.error(error));
   }, []);
+
+  const latesProducts = products.reverse().slice(0, 8);
+
   return (
     <>
       <Slider />
@@ -39,9 +50,7 @@ const Home = () => {
             <h2 className="section-heading">Top Products</h2>
           </div>
           <div>
-            <p className="text-center">
-              <code>Products will load here....</code>
-            </p>
+            <ProductsArchive products={latesProducts} />
           </div>
         </div>
       </section>

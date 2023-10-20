@@ -1,0 +1,218 @@
+[
+  {
+      "image": "https://tinyurl.com/8aftjrrw",
+      "name": "Dramatically Different Moisturizing Lotion",
+      "brand_name": "Clinique",
+      "type": "Skincare",
+      "price": 29.5,
+      "rating": 4.7,
+      "description": "A dermatologist-developed face moisturizer that softens, smooths, and improves skin. Leaves skin glowing."
+  },
+  {
+      "image": "https://tinyurl.com/yubf6wwj",
+      "name": "Regenerist Micro-Sculpting Cream",
+      "brand_name": "Olay",
+      "type": "Skincare",
+      "price": 33.99,
+      "rating": 4.5,
+      "description": "An anti-aging face moisturizer that visibly plumps and firms skin. Delivers hydration and fights wrinkles."
+  },
+  {
+      "image": "https://tinyurl.com/564xu6ue",
+      "name": "Orgasm Blush",
+      "brand_name": "NARS",
+      "type": "Makeup",
+      "price": 30.0,
+      "rating": 4.8,
+      "description": "A cult-favorite blush that gives a natural, healthy-looking color that immediately enlivens the complexion."
+  },
+  {
+      "image": "https://tinyurl.com/3ecpdjwt",
+      "name": "Hydro Boost Water Gel",
+      "brand_name": "Neutrogena",
+      "type": "Skincare",
+      "price": 19.99,
+      "rating": 4.6,
+      "description": "An oil-free water gel that quenches dry skin and keeps it looking smooth, supple, and hydrated day after day."
+  },
+  {
+      "image": "https://tinyurl.com/54fkzp2r",
+      "name": "Deep Moisture Body Wash",
+      "brand_name": "Dove",
+      "type": "Bath & Body",
+      "price": 8.0,
+      "rating": 4.7,
+      "description": "A nourishing body wash that pampers your skin with a rich lather and leaves it feeling softer and smoother."
+  },
+  {
+      "image": "https://tinyurl.com/mr3mzefw",
+      "name": "Infallible Pro-Matte Foundation",
+      "brand_name": "L'Oréal Paris",
+      "type": "Makeup",
+      "price": 12.99,
+      "rating": 4.5,
+      "description": "A liquid foundation with an air-light texture and medium coverage that delivers a demi-matte finish that's never flat or cakey."
+  },
+  {
+      "image": "https://tinyurl.com/382bmhxx",
+      "name": "Take The Day Off Cleansing Balm",
+      "brand_name": "Clinique",
+      "type": "Skincare",
+      "price": 30.0,
+      "rating": 4.8,
+      "description": "A lightweight makeup remover that quickly dissolves tenacious eye and face makeups, sunscreens. Transforms from a solid balm into a silky oil upon application."
+  },
+  {
+      "image": "https://tinyurl.com/4anrb59k",
+      "name": "Total Effects Anti-Aging Moisturizer",
+      "brand_name": "Olay",
+      "type": "Skincare",
+      "price": 24.99,
+      "rating": 4.6,
+      "description": "A multi-tasking face moisturizer that fights 7 signs of aging, including wrinkles, uneven tone, and dullness."
+  },
+  {
+      "image": "https://example.com/product9.jpg",
+      "name": "Radiant Creamy Concealer",
+      "brand_name": "NARS",
+      "type": "Makeup",
+      "price": 30.0,
+      "rating": 4.7,
+      "description": "A multi-action, 16-hour wear concealer that hides imperfections, evens out complexion, and helps improve skin's natural radiance."
+  },
+  {
+      "image": "https://example.com/product10.jpg",
+      "name": "Hydro Boost Hydrating Serum",
+      "brand_name": "Neutrogena",
+      "type": "Skincare",
+      "price": 19.99,
+      "rating": 4.5,
+      "description": "A refreshing hydrating serum that quenches dry skin and keeps it looking smooth, supple, and hydrated day after day."
+  },
+  {
+      "image": "https://example.com/product11.jpg",
+      "name": "White Beauty Bar",
+      "brand_name": "Dove",
+      "type": "Bath & Body",
+      "price": 6.0,
+      "rating": 4.6,
+      "description": "A gentle cleansing bar that helps nourish and protect your skin. Leaves your skin feeling soft, smooth, and radiant."
+  },
+  {
+      "image": "https://example.com/product12.jpg",
+      "name": "Infallible Pro-Glow Foundation",
+      "brand_name": "L'Oréal Paris",
+      "type": "Makeup",
+      "price": 12.99,
+      "rating": 4.4,
+      "description": "A long-lasting, hydrating foundation that provides a radiant glow with a lightweight feel and buildable coverage."
+  },
+  {
+      "image": "https://example.com/product13.jpg",
+      "name": "Moisture Surge 72-Hour Auto-Replenishing Hydrator",
+      "brand_name": "Clinique",
+      "type": "Skincare",
+      "price": 39.0,
+      "rating": 4.7,
+      "description": "An addictively refreshing gel-cream that provides an instant moisture boost and is now enhanced to deliver twice as much hydration at the end of the day."
+  },
+  {
+      "image": "https://example.com/product14.jpg",
+      "name": "Retinol 24 Night Face Moisturizer",
+      "brand_name": "Olay",
+      "type": "Skincare",
+      "price": 38.99,
+      "rating": 4.6,
+      "description": "A night face moisturizer that combines a powerful retinol complex and hydrating ingredients to deliver visible wrinkle results."
+  },
+  {
+      "image": "https://example.com/product15.jpg",
+      "name": "Natural Radiant Longwear Foundation",
+      "brand_name": "NARS",
+      "type": "Makeup",
+      "price": 49.0,
+      "rating": 4.8,
+      "description": "A foundation with up to 16 hours of lightweight, natural, fade-resistant wear. Skin is illuminated and brightened."
+  },
+  {
+      "image": "https://example.com/product16.jpg",
+      "name": "Oil-Free Acne Wash Pink Grapefruit Facial Cleanser",
+      "brand_name": "Neutrogena",
+      "type": "Skincare",
+      "price": 8.49,
+      "rating": 4.5,
+      "description": "A daily facial cleanser that treats and helps prevent breakouts while gently exfoliating your skin."
+  },
+  {
+      "image": "https://example.com/product17.jpg",
+      "name": "Deep Moisture Nourishing Body Wash",
+      "brand_name": "Dove",
+      "type": "Bath & Body",
+      "price": 9.0,
+      "rating": 4.7,
+      "description": "A nourishing body wash with a rich lather that leaves your skin feeling soft and smooth while keeping it hydrated."
+  },
+  {
+      "image": "https://example.com/product18.jpg",
+      "name": "Voluminous Lash Paradise Mascara",
+      "brand_name": "L'Oréal Paris",
+      "type": "Makeup",
+      "price": 10.99,
+      "rating": 4.4,
+      "description": "A volumizing and lengthening mascara that delivers a full lash fringe that's feathery soft with no flaking, no smudging, and no clumping."
+  },
+  {
+      "image": "https://example.com/product19.jpg",
+      "name": "Moisture Surge Eye 96-Hour Hydro-Filler Concentrate",
+      "brand_name": "Clinique",
+      "type": "Skincare",
+      "price": 34.0,
+      "rating": 4.6,
+      "description": "An ultralight, cushiony water-gel that helps eye-area skin replenish its own moisture for a full 96 hours of intense, crease-plumping hydration."
+  },
+  {
+      "image": "https://example.com/product20.jpg",
+      "name": "Fresh Reset Pink Mineral Complex Clay Face Mask Stick",
+      "brand_name": "Olay",
+      "type": "Skincare",
+      "price": 13.49,
+      "rating": 4.5,
+      "description": "A face mask stick that draws out impurities and pollutants like a magnet, while giving skin a gentle exfoliation for a naturally bright, fresh, and healthy-looking complexion."
+  },
+  {
+      "image": "https://example.com/product21.jpg",
+      "name": "All Day Luminous Weightless Foundation",
+      "brand_name": "NARS",
+      "type": "Makeup",
+      "price": 49.5,
+      "rating": 4.7,
+      "description": "An oil-free foundation that delivers full, natural-looking coverage with unexpectedly weightless, 16-hour wear with one drop."
+  },
+  {
+      "image": "https://example.com/product22.jpg",
+      "name": "Hydro Boost Gel-Cream for Extra-Dry Skin",
+      "brand_name": "Neutrogena",
+      "type": "Skincare",
+      "price": 17.99,
+      "rating": 4.4,
+      "description": "A fragrance-free, lightweight gel-cream that instantly quenches and continuously hydrates skin. Suitable for extra-dry skin."
+  },
+  {
+      "image": "https://example.com/product23.jpg",
+      "name": "Exfoliating Body Polish Crushed Macadamia & Rice Milk",
+      "brand_name": "Dove",
+      "type": "Bath & Body",
+      "price": 5.0,
+      "rating": 4.6,
+      "description": "A gentle exfoliating body polish that buffs away dull, dry skin. Leaves your skin feeling silky smooth and nourished."
+  },
+  {
+      "image": "https://example.com/product24.jpg",
+      "name": "Rouge Signature Lightweight Matte Colored Ink",
+      "brand_name": "L'Oréal Paris",
+      "type": "Makeup",
+      "price": 11.99,
+      "rating": 4.7,
+      "description": "A matte colored ink that delivers intense pigment loads with a weightless, bare-lip sensation for a lasting matte finish."
+  }
+]

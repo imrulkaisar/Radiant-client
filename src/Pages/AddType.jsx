@@ -5,14 +5,21 @@ import Swal from "sweetalert2";
 
 const AddType = () => {
   const [slug, setSlug] = useState("");
-  const [brands, setBrands] = useState([]);
+  const [types, setTypes] = useState([]);
+
+  useEffect(() => {
+    fetch(`${apiURL}/types`)
+      .then((res) => res.json())
+      .then((data) => setTypes(data))
+      .catch((error) => console.error(error));
+  }, [slug]);
 
   const onNameChange = (e) => {
     const input = e.target.value.toLowerCase();
     setSlug(input.split(" ").join("-"));
   };
 
-  const findResult = brands.find((brand) => brand.slug === slug);
+  const findResult = types.find((type) => type.slug === slug);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,7 +29,7 @@ const AddType = () => {
     const image = form.image.value;
     const description = form.description.value;
 
-    const brandData = {
+    const typeData = {
       name,
       slug,
       image,
@@ -33,15 +40,15 @@ const AddType = () => {
       Swal.fire({
         icon: "error",
         title: "Type is already exist.",
-        text: "You have have a brand with the same name. please try to add a different one.",
+        text: "You have have a type with the same name. please try to add a different one.",
       });
     } else {
-      fetch(`${apiURL}/brands`, {
+      fetch(`${apiURL}/types`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
         },
-        body: JSON.stringify(brandData),
+        body: JSON.stringify(typeData),
       })
         .then((res) => res.json())
         .then((data) => {
@@ -60,14 +67,7 @@ const AddType = () => {
     }
   };
 
-  useEffect(() => {
-    fetch(`${apiURL}/brands`)
-      .then((res) => res.json())
-      .then((data) => setBrands(data))
-      .catch((error) => console.error(error));
-  }, [slug]);
-
-  console.log(brands);
+  console.log(types);
 
   return (
     <>
@@ -115,7 +115,7 @@ const AddType = () => {
               className="form-input h-40"
               id="description"
               name="description"
-              placeholder="Category description"
+              placeholder="Type description"
             ></textarea>
           </div>
           <button className="btn btn-primary w-full">Add Type</button>

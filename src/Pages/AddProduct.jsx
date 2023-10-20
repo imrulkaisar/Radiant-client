@@ -3,23 +3,97 @@ import PageHeader from "../Components/PageHeader";
 import { useEffect } from "react";
 import { apiURL } from "../Contexts/GlobalContext";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const AddProduct = () => {
   const [slug, setSlug] = useState("");
+  const [products, setProducts] = useState([]);
   const [brands, setBrands] = useState([]);
   const [types, setTypes] = useState([]);
 
   useEffect(() => {
+    // Product fetching
     fetch(`${apiURL}/brands`)
       .then((res) => res.json())
       .then((data) => setBrands(data))
       .catch((error) => console.error(error));
+
+    // type fetching
+    fetch(`${apiURL}/types`)
+      .then((res) => res.json())
+      .then((data) => setTypes(data))
+      .catch((error) => console.error(error));
   }, []);
 
-  const onNameChange = (e) => {};
+  useEffect(() => {
+    fetch(`${apiURL}/products`)
+      .then((res) => res.json())
+      .then((data) => setProducts(data))
+      .catch((error) => console.error(error));
+  }, [slug]);
+
+  const onNameChange = (e) => {
+    const input = e.target.value.toLowerCase();
+    setSlug(input.split(" ").join("-"));
+  };
+
+  const findResult = products.find((product) => product.slug === slug);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const form = e.target;
+
+    const name = form.name.value;
+    const image = form.image.value;
+    const brand = form.brand.value;
+    const type = form.type.value;
+    const price = form.price.value;
+    const rating = form.rating.value;
+    const description = form.description.value;
+
+    const productData = {
+      name,
+      slug,
+      image,
+      brand,
+      type,
+      price,
+      rating,
+      description,
+    };
+
+    if (findResult) {
+      Swal.fire({
+        icon: "error",
+        title: "Product slug is already exist.",
+        text: "You have a product with the same slug. please try to add a different one.",
+      });
+    } else {
+      fetch(`${apiURL}/products`, {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(productData),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data) {
+            if (data.insertedId) {
+              Swal.fire({
+                icon: "success",
+                title: "Product added successfully!",
+                showConfirmButton: false,
+                showCloseButton: true,
+              });
+              form.reset();
+              setSlug("");
+            }
+          }
+        })
+        .catch((error) => console.error(error));
+    }
   };
 
   return (
@@ -64,10 +138,10 @@ const AddProduct = () => {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="image" className="sr-only">
+            <label htmlFor="brand" className="sr-only">
               Brand
             </label>
-            <select className="form-input" id="image" name="brand">
+            <select className="form-input" id="brand" name="brand">
               <option value="">Select Brand</option>
               {brands.map((brand) => (
                 <option key={brand._id} value={brand.slug}>
@@ -80,10 +154,10 @@ const AddProduct = () => {
             </div>
           </div>
           <div className="form-group">
-            <label htmlFor="image" className="sr-only">
+            <label htmlFor="type" className="sr-only">
               Type
             </label>
-            <select className="form-input" id="image" name="brand">
+            <select className="form-input" id="type" name="type">
               <option value="">Select Type</option>
               {types.map((type) => (
                 <option key={type._id} value={type.slug}>

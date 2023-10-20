@@ -115,7 +115,7 @@ const AddBrand = () => {
               className="form-input h-40"
               id="description"
               name="description"
-              placeholder="Category description"
+              placeholder="Brand description"
             ></textarea>
           </div>
           <button className="btn btn-primary w-full">Add brand</button>

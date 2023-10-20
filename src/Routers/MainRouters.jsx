@@ -10,6 +10,7 @@ import UpdateBrand from "../Pages/UpdateBrand";
 import Cart from "../Pages/Cart";
 import Profile from "../Pages/Profile";
 import AddType from "../Pages/AddType";
+import Products from "../Pages/Products";
 
 const MainRouters = createBrowserRouter([
   {
@@ -21,7 +22,7 @@ const MainRouters = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/product/:id",
+        path: "/product/:url",
         element: <ProductDetails />,
       },
       {
@@ -47,6 +48,10 @@ const MainRouters = createBrowserRouter([
       {
         path: "/add-type",
         element: <AddType />,
+      },
+      {
+        path: "/products",
+        element: <Products />,
       },
       {
         path: "/cart",

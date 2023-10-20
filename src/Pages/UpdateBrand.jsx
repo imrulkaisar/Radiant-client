@@ -108,13 +108,13 @@ const UpdateBrand = () => {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="name" className="">
+            <label htmlFor="slug" className="">
               Slug
             </label>
             <input
               type="text"
               className="form-input"
-              id="name"
+              id="slug"
               name="slug"
               placeholder="Brand name"
               onChange={onNameChange}
