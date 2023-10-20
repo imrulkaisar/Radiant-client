@@ -11,6 +11,7 @@ const DataContextProvider = ({ children }) => {
   const initialCartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
   const [cartItems, setCartItems] = useState(initialCartItems);
   const [products, setProducts] = useState([]);
+  const [users, SetUsers] = useState([]);
 
   const { user } = useContext(UserContext);
 
@@ -24,10 +25,17 @@ const DataContextProvider = ({ children }) => {
       .then((res) => res.json())
       .then((data) => setProducts(data))
       .catch((error) => console.error(error));
+
+    // All users fetching
+    fetch(`${apiURL}/users`)
+      .then((res) => res.json())
+      .then((data) => SetUsers(data))
+      .catch((error) => console.error(error));
   }, []);
 
   useEffect(() => {
     if (user && user.email) {
+      // single user fetching
       fetch(`${apiURL}/users/${user.email}`)
         .then((res) => res.json())
         .then((data) => {
@@ -43,6 +51,7 @@ const DataContextProvider = ({ children }) => {
     cartItems,
     setCartItems,
     products,
+    users,
   };
   return <DataContext.Provider value={data}>{children}</DataContext.Provider>;
 };

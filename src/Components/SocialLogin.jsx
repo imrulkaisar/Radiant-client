@@ -3,16 +3,47 @@ import { UserContext } from "../Contexts/UserContext";
 import { FcGoogle } from "react-icons/fc";
 import { useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { apiURL } from "../Contexts/GlobalContext";
+import { DataContext } from "../Contexts/DataContext";
 
 const SocialLogin = () => {
   const { googleSignIn } = useContext(UserContext);
+  const { users } = useContext(DataContext);
   const navigate = useNavigate();
   const { state } = useLocation();
 
   const handleGoogleSignIn = () => {
     googleSignIn()
       .then((res) => {
-        console.log(res.user.email, "logged in successfully!");
+        const { displayName, email, photoURL } = res.user;
+        console.log(displayName, "logged in successfully!");
+
+        const matchedUser = users.filter((user) => user.email === email);
+
+        if (matchedUser.length === 0) {
+          const userInfo = {
+            name: displayName,
+            email,
+            photoURL,
+            cartItems: [],
+          };
+
+          fetch(`${apiURL}/users`, {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(userInfo),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.insertedId) {
+                console.log("User add to the database!");
+              }
+            })
+            .catch((error) => console.error(error));
+        }
+
         navigate(state ? state : "/profile");
       })
       .catch((error) => {
