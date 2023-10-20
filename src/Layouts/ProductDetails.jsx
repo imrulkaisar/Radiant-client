@@ -13,13 +13,6 @@ const ProductDetails = () => {
 
   const { name, slug, image, brand, type, price, rating, description } =
     product[0] || {};
-  // const { name, slug, image, description } = brand || {};
-
-  // useEffect(() => {
-  //   fetch(`${apiURL}/brand/${brand}`)
-  //     .then((res) => res.json())
-  //     .then((data) => setProductBrand(data[0]));
-  // }, [brand]);
 
   useEffect(() => {
     fetch(`${apiURL}/products/${url}`)
@@ -35,7 +28,9 @@ const ProductDetails = () => {
       .catch((error) => console.error(error));
   }, [url]);
 
-  console.log(brand, productBrand);
+  const handleAddToCart = () => {
+    console.log("added on the cart");
+  };
   return (
     <>
       <PageHeader
@@ -74,7 +69,7 @@ const ProductDetails = () => {
                 ${price}
               </p>
               <p className="text-sm text-green-600">12 products in stock</p>
-              <button className="btn btn-secondary">
+              <button onClick={handleAddToCart} className="btn btn-secondary">
                 <AiOutlineShoppingCart /> Add to cart
               </button>
             </div>

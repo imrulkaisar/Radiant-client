@@ -3,6 +3,7 @@ import PageHeader from "../Components/PageHeader";
 import { useContext } from "react";
 import { UserContext } from "../Contexts/UserContext";
 import Swal from "sweetalert2";
+import { apiURL } from "../Contexts/GlobalContext";
 
 const Register = () => {
   const { signUp, updateUser } = useContext(UserContext);
@@ -46,12 +47,34 @@ const Register = () => {
           photoURL: photoURL.value,
         });
 
+        const userInfo = await {
+          name: name.value,
+          email: email.value,
+          photoURL: photoURL.value,
+        };
+
+        await fetch(`${apiURL}/users`, {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(userInfo),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.insertedId) {
+              console.log("User add to the database!");
+            }
+          })
+          .catch((error) => console.error(error));
+
         Swal.fire({
           icon: "success",
           title: "User created successfully!",
           showConfirmButton: false,
           showCloseButton: true,
         });
+
         navigate("/profile");
       } catch (error) {
         console.error(error);
