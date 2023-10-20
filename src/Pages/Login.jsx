@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import PageHeader from "../Components/PageHeader";
 import { useContext } from "react";
 import { UserContext } from "../Contexts/UserContext";
@@ -6,6 +6,7 @@ import { UserContext } from "../Contexts/UserContext";
 const Login = () => {
   const { login } = useContext(UserContext);
   const navigate = useNavigate();
+  const { state } = useLocation();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -17,7 +18,7 @@ const Login = () => {
     login(email, password)
       .then((res) => {
         console.log(res.user.email, "logged in successfully!");
-        navigate("/profile");
+        navigate(state ? state : "/profile");
       })
       .catch((error) => console.error(error));
   };

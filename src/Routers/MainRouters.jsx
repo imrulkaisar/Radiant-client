@@ -13,6 +13,8 @@ import AddType from "../Pages/AddType";
 import Products from "../Pages/Products";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
+import PrivateRouter from "./PrivateRouter";
+import Contact from "../Pages/Contact";
 
 const MainRouters = createBrowserRouter([
   {
@@ -25,15 +27,27 @@ const MainRouters = createBrowserRouter([
       },
       {
         path: "/product/:url",
-        element: <ProductDetails />,
+        element: (
+          <PrivateRouter>
+            <ProductDetails />
+          </PrivateRouter>
+        ),
       },
       {
         path: "/add-product",
-        element: <AddProduct />,
+        element: (
+          <PrivateRouter>
+            <AddProduct />
+          </PrivateRouter>
+        ),
       },
       {
         path: "update-product/:id",
-        element: <UpdateProduct />,
+        element: (
+          <PrivateRouter>
+            <UpdateProduct />
+          </PrivateRouter>
+        ),
       },
       {
         path: "/brand/:url",
@@ -41,19 +55,35 @@ const MainRouters = createBrowserRouter([
       },
       {
         path: "/add-brand",
-        element: <AddBrand />,
+        element: (
+          <PrivateRouter>
+            <AddBrand />
+          </PrivateRouter>
+        ),
       },
       {
         path: "/update-brand/:url",
-        element: <UpdateBrand />,
+        element: (
+          <PrivateRouter>
+            <UpdateBrand />
+          </PrivateRouter>
+        ),
       },
       {
         path: "/add-type",
-        element: <AddType />,
+        element: (
+          <PrivateRouter>
+            <AddType />
+          </PrivateRouter>
+        ),
       },
       {
         path: "/products",
         element: <Products />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
       },
       {
         path: "/cart",
@@ -61,7 +91,11 @@ const MainRouters = createBrowserRouter([
       },
       {
         path: "/profile",
-        element: <Profile />,
+        element: (
+          <PrivateRouter>
+            <Profile />
+          </PrivateRouter>
+        ),
       },
       {
         path: "/login",
