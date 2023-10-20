@@ -92,6 +92,9 @@ const UpdateBrand = () => {
     <div>
       <PageHeader title="Update Brand" />
       <div className="py-16">
+        <div className="image text-center pb-8">
+          <img className="w-36 inline" src={brand.image} alt="" />
+        </div>
         <form
           className="max-w-lg mx-auto bg-white p-8 space-y-5"
           onSubmit={handleSubmit}
