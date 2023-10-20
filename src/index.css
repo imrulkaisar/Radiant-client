@@ -44,3 +44,6 @@
 .active {
   @apply text-secondary !important;
 }
+.vertical-menu .active {
+  @apply bg-secondary text-primary !important;
+}

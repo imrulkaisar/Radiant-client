@@ -11,6 +11,8 @@ import Cart from "../Pages/Cart";
 import Profile from "../Pages/Profile";
 import AddType from "../Pages/AddType";
 import Products from "../Pages/Products";
+import Login from "../Pages/Login";
+import Register from "../Pages/Register";
 
 const MainRouters = createBrowserRouter([
   {
@@ -60,6 +62,14 @@ const MainRouters = createBrowserRouter([
       {
         path: "/profile",
         element: <Profile />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/register",
+        element: <Register />,
       },
     ],
   },

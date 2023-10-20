@@ -1,8 +1,23 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { FiUser, FiShoppingCart, FiPlusCircle } from "react-icons/fi";
 import Logo from "./Logo";
+import { useContext } from "react";
+import { UserContext } from "../Contexts/UserContext";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(UserContext);
+  const { accessToken, displayName, photoURL, email } = user || {};
+  const navigate = useNavigate();
+
+  const handleLogOut = () => {
+    logOut()
+      .then((res) => {
+        console.log("Logged out successfully!");
+        navigate("/login");
+      })
+      .catch((error) => console.error(error));
+  };
+
   return (
     <div className="container-area py-2 flex justify-between items-center border-b">
       <Logo />
@@ -32,9 +47,33 @@ const Navbar = () => {
             0
           </span>
         </div>
-        <button className="btn btn-primary py-2">
-          <FiUser /> Login
-        </button>
+        {accessToken ? (
+          <div className="flex items-center gap-2">
+            <Link to="/profile">
+              <img
+                className="w-10 h-10 object-cover rounded-full border-2 border-transparent hover:border-2 hover:border-secondary"
+                src={photoURL}
+                alt={displayName}
+                title="Profile"
+              />
+            </Link>
+            <div className="space-y-1">
+              <Link to="/profile">
+                <p>{displayName}</p>
+              </Link>
+              <button
+                onClick={handleLogOut}
+                className="btn border-0 p-0 text-xs font-bold hover:underline hover:text-secondary"
+              >
+                Log out
+              </button>
+            </div>
+          </div>
+        ) : (
+          <Link to="/login" className="btn btn-primary py-2">
+            <FiUser /> Login
+          </Link>
+        )}
       </div>
     </div>
   );

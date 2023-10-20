@@ -1,8 +1,74 @@
+import { Link, useNavigate } from "react-router-dom";
+import PageHeader from "../Components/PageHeader";
+import { useContext } from "react";
+import { UserContext } from "../Contexts/UserContext";
+
 const Login = () => {
+  const { login } = useContext(UserContext);
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
+
+    const email = form.email.value;
+    const password = form.password.value;
+
+    login(email, password)
+      .then((res) => {
+        console.log(res.user.email, "logged in successfully!");
+        navigate("/profile");
+      })
+      .catch((error) => console.error(error));
+  };
   return (
-    <div>
-      <h1>Please login to your account</h1>
-    </div>
+    <>
+      <PageHeader title="Login" />
+      <section className="py-16">
+        <form
+          className="max-w-lg mx-auto bg-white p-8 space-y-5 mt-10"
+          onSubmit={handleSubmit}
+        >
+          <div className="form-group">
+            <label htmlFor="email" className="sr-only">
+              Email address
+            </label>
+            <input
+              type="email"
+              className="form-input"
+              id="email"
+              name="email"
+              placeholder="Email Address"
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="password" className="sr-only">
+              Password
+            </label>
+            <input
+              type="password"
+              className="form-input"
+              id="password"
+              name="password"
+              placeholder="Password"
+            />
+          </div>
+          <button type="submit" className="btn btn-secondary w-full">
+            Login
+          </button>
+        </form>
+        <p className="text-center py-10">
+          Don't have an account? Please{" "}
+          <Link
+            className="hover:text-secondary font-bold text-primary"
+            to="/register"
+          >
+            Register here
+          </Link>
+          .
+        </p>
+      </section>
+    </>
   );
 };
 
