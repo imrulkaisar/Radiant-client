@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { AiFillStar, AiOutlineEye, AiOutlineEdit } from "react-icons/ai";
 
 const ProductCard = ({ data = {} }) => {
-  const { name, slug, image, brand, type, price, rating } = data;
+  const { _id, name, slug, image, brand, type, price, rating } = data;
 
   const brandName = brand.split("-").join(" ");
 
@@ -47,7 +47,10 @@ const ProductCard = ({ data = {} }) => {
         >
           <AiOutlineEye />
         </Link>
-        <Link className="py-1 px-3 border border-primary flex-1 flex justify-center hover:bg-black hover:text-white">
+        <Link
+          to={`/update-product/${_id}`}
+          className="py-1 px-3 border border-primary flex-1 flex justify-center hover:bg-black hover:text-white"
+        >
           <AiOutlineEdit />
         </Link>
       </div>

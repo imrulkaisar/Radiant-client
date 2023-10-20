@@ -2,25 +2,36 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { apiURL } from "../Contexts/GlobalContext";
 import PageHeader from "../Components/PageHeader";
+import ProductsArchive from "../Components/ProductsArchive";
 
 const BrandDetails = () => {
   const { url } = useParams();
   const [brand, setBrand] = useState({});
   const { name, slug, image, description } = brand || {};
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
     fetch(`${apiURL}/brand/${url}`)
       .then((res) => res.json())
       .then((data) => setBrand(data[0]));
+
+    // product fetching
+    fetch(`${apiURL}/products`)
+      .then((res) => res.json())
+      .then((data) => setProducts(data))
+      .catch((error) => console.error(error));
   }, [url]);
 
-  console.log(brand);
+  const brandProducts =
+    products.filter((product) => product.brand === slug) || [];
+
+  console.log(brandProducts);
 
   return (
     <>
       <PageHeader title={name} />
       <section className="py-16">
-        <div className="container-area">
+        <div className="container-area space-y-10">
           <div className="flex gap-10 items-center">
             <img className="w-28" src={image} alt="" />
             <div className="space-y-4">
@@ -32,6 +43,18 @@ const BrandDetails = () => {
                 Edit brand details
               </Link>
             </div>
+          </div>
+          <div className="divider bg-gray-300 h-[2px] my-5"></div>
+          {/* Products */}
+          <div className="space-y-8">
+            <h2 className="font-secondary text-3xl capitalize">
+              {name} brand products
+            </h2>
+            {brandProducts.length > 0 ? (
+              <ProductsArchive products={brandProducts} />
+            ) : (
+              <p>Sorry! There is no products for this brand.</p>
+            )}
           </div>
         </div>
       </section>
