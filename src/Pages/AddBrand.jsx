@@ -20,12 +20,14 @@ const AddBrand = () => {
     const form = e.target;
     const name = form.name.value;
     const image = form.image.value;
+    const bannerImages = form.bannerImages.value;
     const description = form.description.value;
 
     const brandData = {
       name,
       slug,
       image,
+      bannerImages,
       description,
     };
 
@@ -106,6 +108,20 @@ const AddBrand = () => {
               name="image"
               placeholder="Image URL"
             />
+          </div>
+          <div className="form-group">
+            <label htmlFor="bannerImages" className="sr-only">
+              Banner Images
+            </label>
+            <textarea
+              className="form-input h-24"
+              id="bannerImages"
+              name="bannerImages"
+              placeholder="Banner Images"
+            ></textarea>
+            <p>
+              <small>Separate the links with ("|")</small>
+            </p>
           </div>
           <div className="form-group">
             <label htmlFor="description" className="sr-only">

@@ -31,12 +31,14 @@ const UpdateBrand = () => {
     const newName = form.name.value;
     const newSlug = form.slug.value;
     const newImage = form.image.value;
+    const newBannerImages = form.bannerImages.value;
     const newDescription = form.description.value;
 
     const brandData = {
       newName,
       newSlug,
       newImage,
+      newBannerImages,
       newDescription,
     };
 
@@ -138,6 +140,21 @@ const UpdateBrand = () => {
               placeholder="Image URL"
               defaultValue={brand.image}
             />
+          </div>
+          <div className="form-group">
+            <label htmlFor="bannerImages" className="sr-only">
+              Banner Images
+            </label>
+            <textarea
+              className="form-input h-24"
+              id="bannerImages"
+              name="bannerImages"
+              placeholder="Banner Images"
+              defaultValue={brand.bannerImages}
+            ></textarea>
+            <p>
+              <small>Separate the links with ("|")</small>
+            </p>
           </div>
           <div className="form-group">
             <label htmlFor="description" className="">

@@ -3,11 +3,12 @@ import { Link, useParams } from "react-router-dom";
 import { apiURL } from "../Contexts/GlobalContext";
 import PageHeader from "../Components/PageHeader";
 import ProductsArchive from "../Components/ProductsArchive";
+import BrandAdvertisementSlider from "../Components/BrandAdvertisementSlider";
 
 const BrandDetails = () => {
   const { url } = useParams();
   const [brand, setBrand] = useState({});
-  const { name, slug, image, description } = brand || {};
+  const { name, slug, image, bannerImages, description } = brand || {};
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -25,11 +26,12 @@ const BrandDetails = () => {
   const brandProducts =
     products.filter((product) => product.brand === slug) || [];
 
-  console.log(brandProducts);
+  const bannerImagesArray = bannerImages ? bannerImages.split("|") : [];
 
   return (
     <>
       <PageHeader title={name} />
+      <BrandAdvertisementSlider images={bannerImagesArray} />
       <section className="py-16">
         <div className="container-area space-y-10">
           <div className="flex gap-10 items-center">
