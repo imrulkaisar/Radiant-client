@@ -94,7 +94,7 @@ const AddProduct = () => {
         title="Add Product"
         steps={[{ title: "Products", link: "/products" }]}
       />
-      <div className="py-16">
+      <div className="py-16 px-5 lg:px-0">
         <form
           className="max-w-lg mx-auto bg-white p-8 space-y-5"
           onSubmit={handleSubmit}
@@ -161,7 +161,7 @@ const AddProduct = () => {
               <Link to="/add-type">+ Add new type</Link>
             </div>
           </div>
-          <div className="flex gap-4">
+          <div className="flex flex-col md:flex-row gap-4">
             <div className="form-group">
               <label className="sr-only" htmlFor="price">
                 Product Price

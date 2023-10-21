@@ -1,7 +1,7 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { FiUser, FiShoppingCart, FiPlusCircle } from "react-icons/fi";
 import Logo from "./Logo";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { UserContext } from "../Contexts/UserContext";
 import { DataContext } from "../Contexts/DataContext";
 

@@ -22,12 +22,12 @@ const Testimonials = () => {
   });
 
   return (
-    <section className="flex">
+    <section className="flex flex-col-reverse">
       <div
         style={{
           backgroundImage: `url(${testimonialBg})`,
         }}
-        className="flex-1 max-w-[50%] px-10 py-16 space-y-8"
+        className="flex-1 md:max-w-[50%] px-10 py-16 space-y-8"
       >
         <div className="text-center space-y-3">
           <p className="sub-heading text-white">Our shop</p>
@@ -109,7 +109,7 @@ const Testimonials = () => {
         style={{
           backgroundImage: `url(${beautyFace})`,
         }}
-        className="flex-1 bg-cover bg-center"
+        className="flex-1 bg-cover bg-center min-h-[300px]"
       ></div>
     </section>
   );

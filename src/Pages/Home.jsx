@@ -15,7 +15,7 @@ const Home = () => {
     <>
       <Slider />
       <section className="py-16 dark:bg-gray-800">
-        <div className="container-area grid grid-cols-6 gap-4">
+        <div className="container-area grid grid-cols-3 lg:grid-cols-6 gap-4">
           {brands.map((brand) => (
             <Brand
               key={brand._id}

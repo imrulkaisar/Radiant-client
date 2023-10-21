@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 const PageHeader = ({ title, steps = [] }) => {
   return (
-    <div className="bg-[url('https://tinyurl.com/mr4bxj42')] dark:bg-[url('https://tinyurl.com/4kr7vak9')] bg-center flex justify-center items-center min-h-[200px]">
+    <div className="bg-[url('https://tinyurl.com/mr4bxj42')] dark:bg-[url('https://tinyurl.com/mpcy6fma')] bg-center flex justify-center items-center min-h-[200px]">
       <div className="container-area flex flex-col gap-5 justify-center items-center">
-        <h1 className="text-white uppercase text-5xl tracking-[3px]">
+        <h1 className="text-white uppercase text-5xl tracking-[3px] text-center lg:text-left">
           {title}
         </h1>
 

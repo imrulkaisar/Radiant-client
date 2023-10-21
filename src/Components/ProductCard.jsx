@@ -8,7 +8,7 @@ const ProductCard = ({ data = {} }) => {
   const brandName = brand.split("-").join(" ");
 
   return (
-    <article className="product bg-white p-5 text-center flex flex-col gap-4 rounded-lg">
+    <article className="product bg-white p-5 text-center flex flex-col gap-4 rounded-lg max-w-[300px]">
       <figure>
         <Link to={`/product/${slug}`}>
           <img src={image} alt={name} />

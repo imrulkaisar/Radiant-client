@@ -10,7 +10,7 @@ const BrandAdvertisementSlider = ({ images = [] }) => {
             }}
             className="keen-slider__slide min-w-max bg-center bg-cover"
           >
-            <div className="min-h-[240px] w-full"></div>
+            <div className="min-h-[100px] lg:min-h-[240px] w-full"></div>
           </div>
         ))}
     </div>

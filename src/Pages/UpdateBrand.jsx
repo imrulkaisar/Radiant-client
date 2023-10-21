@@ -93,7 +93,7 @@ const UpdateBrand = () => {
   return (
     <div>
       <PageHeader title="Update Brand" />
-      <div className="py-16">
+      <div className="py-16 px-5 lg:px-0">
         <div className="image text-center pb-8">
           <img className="w-36 inline" src={brand.image} alt="" />
         </div>

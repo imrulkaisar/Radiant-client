@@ -26,8 +26,8 @@ const Profile = () => {
     <>
       <PageHeader title="Profile" />
       <section className="py-16">
-        <div className="container-area max-w-4xl flex gap-2">
-          <div className="vertical-menu w-52">
+        <div className="container-area max-w-4xl flex flex-col-reverse lg:flex-row gap-2">
+          <div className="vertical-menu w-full lg:w-52">
             <ul className="space-y-1">
               <li>
                 <NavLink

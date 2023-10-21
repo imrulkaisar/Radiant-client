@@ -50,10 +50,10 @@ const Slider = () => {
             style={{
               backgroundImage: `url(${sliderImage1})`,
             }}
-            className="h-[500px] bg-cover bg-center"
+            className="h-[400px] lg:h-[500px] bg-cover bg-center"
           >
             <div className="overlay h-full text-white flex justify-start items-center">
-              <div className="container-area space-y-5">
+              <div className="container-area space-y-2 lg:space-y-5">
                 <p className="text-xl text-white font-secondary uppercase tracking-[5px]">
                   Skin Package
                 </p>
@@ -77,10 +77,10 @@ const Slider = () => {
             style={{
               backgroundImage: `url(${sliderImage2})`,
             }}
-            className="h-[500px] bg-cover bg-center"
+            className="h-[400px] lg:h-[500px] bg-cover bg-center"
           >
             <div className="overlay h-full text-white flex justify-start items-center">
-              <div className="container-area space-y-5">
+              <div className="container-area space-y-2 lg:space-y-5">
                 <p className="text-xl text-white font-secondary uppercase tracking-[5px]">
                   exclusive
                 </p>
@@ -104,10 +104,10 @@ const Slider = () => {
             style={{
               backgroundImage: `url(${sliderImage3})`,
             }}
-            className="h-[500px] bg-cover bg-center"
+            className="h-[400px] lg:h-[500px] bg-cover bg-center"
           >
             <div className="overlay h-full text-white flex justify-start items-center">
-              <div className="container-area space-y-5">
+              <div className="container-area space-y-2 lg:space-y-5">
                 <p className="text-xl text-white font-secondary uppercase tracking-[5px]">
                   new product
                 </p>

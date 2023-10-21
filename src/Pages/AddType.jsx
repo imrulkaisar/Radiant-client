@@ -72,7 +72,7 @@ const AddType = () => {
   return (
     <>
       <PageHeader title="Add Type" />
-      <div className="py-16">
+      <div className="py-16 px-5 lg:px-0">
         <form
           className="max-w-lg mx-auto bg-white p-8 space-y-5"
           onSubmit={handleSubmit}

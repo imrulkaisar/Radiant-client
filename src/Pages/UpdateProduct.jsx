@@ -99,7 +99,7 @@ const UpdateProduct = () => {
         title="Update product"
         steps={[{ title: "Products", link: "/products" }]}
       />
-      <div className="py-16">
+      <div className="py-16 px-5 lg:px-0">
         <div className="image text-center pb-8">
           <img className="w-36 inline" src={singleProduct.image} alt="" />
         </div>
@@ -181,7 +181,7 @@ const UpdateProduct = () => {
               <Link to="/add-type">+ Add new type</Link>
             </div>
           </div>
-          <div className="flex gap-4">
+          <div className="flex gap-4 flex-col md:flex-row">
             <div className="form-group">
               <label className="" htmlFor="price">
                 Product Price

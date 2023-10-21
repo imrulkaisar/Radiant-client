@@ -36,9 +36,9 @@ const Login = () => {
   return (
     <>
       <PageHeader title="Login" />
-      <section className="py-16">
+      <section className="py-16 px-5 lg:px-0">
         <form
-          className="max-w-lg mx-auto bg-white p-8 space-y-5 mt-10"
+          className="max-w-lg mx-auto bg-white p-8 space-y-5 mt-0 lg:mt-10"
           onSubmit={handleSubmit}
         >
           <div className="form-group">

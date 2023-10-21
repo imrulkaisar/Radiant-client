@@ -104,7 +104,7 @@ const ProductDetails = () => {
         steps={[{ title: "Products", link: "/products" }]}
       />
       <section className="py-16">
-        <div className="container-area flex gap-10">
+        <div className="container-area flex flex-col lg:flex-row gap-10">
           <div className="p-5 bg-white flex-1">
             <img src={image} alt="" />
           </div>
