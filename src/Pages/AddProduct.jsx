@@ -4,26 +4,15 @@ import { useEffect } from "react";
 import { apiURL } from "../Contexts/GlobalContext";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import { useContext } from "react";
+import { DataContext } from "../Contexts/DataContext";
 
 const AddProduct = () => {
+  const { types, brands } = useContext(DataContext);
+
   const [slug, setSlug] = useState("");
   const [products, setProducts] = useState([]);
-  const [brands, setBrands] = useState([]);
-  const [types, setTypes] = useState([]);
-
-  useEffect(() => {
-    // Product fetching
-    fetch(`${apiURL}/brands`)
-      .then((res) => res.json())
-      .then((data) => setBrands(data))
-      .catch((error) => console.error(error));
-
-    // type fetching
-    fetch(`${apiURL}/types`)
-      .then((res) => res.json())
-      .then((data) => setTypes(data))
-      .catch((error) => console.error(error));
-  }, []);
+  let timeout;
 
   useEffect(() => {
     fetch(`${apiURL}/products`)
@@ -34,7 +23,10 @@ const AddProduct = () => {
 
   const onNameChange = (e) => {
     const input = e.target.value.toLowerCase();
-    setSlug(input.split(" ").join("-"));
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      setSlug(input.split(" ").join("-"));
+    }, 3000);
   };
 
   const findResult = products.find((product) => product.slug === slug);

@@ -1,42 +1,19 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import PageHeader from "../Components/PageHeader";
 import { useEffect } from "react";
 import { apiURL } from "../Contexts/GlobalContext";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
+import { DataContext } from "../Contexts/DataContext";
 
 const UpdateProduct = () => {
+  const { products, brands, types } = useContext(DataContext);
   const { id } = useParams();
   const [newSlug, setNewSlug] = useState("");
-  const [products, setProducts] = useState([]);
   const [singleProduct, setSingleProduct] = useState([]);
-  const [brands, setBrands] = useState([]);
-  const [types, setTypes] = useState([]);
   const navigate = useNavigate();
 
   // const { _id, name, image, type, price, rating, description } = singleProduct;
-
-  useEffect(() => {
-    // Brands fetching
-    fetch(`${apiURL}/brands`)
-      .then((res) => res.json())
-      .then((data) => setBrands(data))
-      .catch((error) => console.error(error));
-
-    // type fetching
-    fetch(`${apiURL}/types`)
-      .then((res) => res.json())
-      .then((data) => setTypes(data))
-      .catch((error) => console.error(error));
-  }, []);
-
-  // fetching all products
-  useEffect(() => {
-    fetch(`${apiURL}/products`)
-      .then((res) => res.json())
-      .then((data) => setProducts(data))
-      .catch((error) => console.error(error));
-  }, [newSlug]);
 
   // fetching single product with id
   useEffect(() => {
@@ -49,10 +26,9 @@ const UpdateProduct = () => {
       .catch((error) => console.error(error));
   }, [id, singleProduct.slug]);
 
-  console.log(singleProduct);
-
   const onNameChange = (e) => {
     const input = e.target.value.toLowerCase();
+
     setNewSlug(input.split(" ").join("-"));
   };
 

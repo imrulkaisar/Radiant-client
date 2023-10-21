@@ -1,4 +1,4 @@
-export const apiURL = "http://localhost:3000";
+export const apiURL = "https://radiant-server.vercel.app";
 
 export const contactInfo = {
   phone: "+8801775577844",

@@ -1,28 +1,13 @@
-import { useEffect } from "react";
+import { useContext } from "react";
 import Brand from "../Components/Brand";
 import Slider from "../Components/Slider";
 import Testimonials from "../Components/TestimonialSlider/Testimonials";
 
-import { useState } from "react";
-import { apiURL } from "../Contexts/GlobalContext";
 import ProductsArchive from "../Components/ProductsArchive";
+import { DataContext } from "../Contexts/DataContext";
 
 const Home = () => {
-  const [brands, setBrands] = useState([]);
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    fetch(`${apiURL}/brands`)
-      .then((res) => res.json())
-      .then((data) => setBrands(data))
-      .catch((error) => console.error(error));
-
-    // product fetching
-    fetch(`${apiURL}/products`)
-      .then((res) => res.json())
-      .then((data) => setProducts(data))
-      .catch((error) => console.error(error));
-  }, []);
+  const { products, brands } = useContext(DataContext);
 
   const latesProducts = products.reverse().slice(0, 8);
 

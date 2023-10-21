@@ -1,24 +1,27 @@
-import { useEffect } from "react";
-import { useState } from "react";
-import { createContext } from "react";
+import { useEffect, useState, createContext, useContext } from "react";
 import { apiURL } from "./GlobalContext";
-import { useContext } from "react";
 import { UserContext } from "./UserContext";
 
 export const DataContext = createContext(null);
 
 const DataContextProvider = ({ children }) => {
+  // Extracting user from the context
+  const { user } = useContext(UserContext);
+
+  // Initializing states
   const initialCartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
   const [cartItems, setCartItems] = useState(initialCartItems);
   const [products, setProducts] = useState([]);
-  const [users, SetUsers] = useState([]);
+  const [brands, setBrands] = useState([]);
+  const [types, setTypes] = useState([]);
+  const [users, setUsers] = useState([]);
 
-  const { user } = useContext(UserContext);
-
+  // Effect for updating cartItems in localStorage
   useEffect(() => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }, [cartItems]);
 
+  // Effect for fetching products and all users
   useEffect(() => {
     // product fetching
     fetch(`${apiURL}/products`)
@@ -26,13 +29,26 @@ const DataContextProvider = ({ children }) => {
       .then((data) => setProducts(data))
       .catch((error) => console.error(error));
 
+    // All brands fetching
+    fetch(`${apiURL}/brands`)
+      .then((res) => res.json())
+      .then((data) => setBrands(data))
+      .catch((error) => console.error(error));
+
+    // All Types fetching
+    fetch(`${apiURL}/types`)
+      .then((res) => res.json())
+      .then((data) => setTypes(data))
+      .catch((error) => console.error(error));
+
     // All users fetching
     fetch(`${apiURL}/users`)
       .then((res) => res.json())
-      .then((data) => SetUsers(data))
+      .then((data) => setUsers(data))
       .catch((error) => console.error(error));
   }, []);
 
+  // Effect for fetching user-specific data
   useEffect(() => {
     if (user && user.email) {
       // single user fetching
@@ -47,12 +63,17 @@ const DataContextProvider = ({ children }) => {
     }
   }, [user]);
 
+  // Data object for the context provider
   const data = {
     cartItems,
     setCartItems,
     products,
+    brands,
+    types,
     users,
   };
+
+  // Return the context provider with the provided data
   return <DataContext.Provider value={data}>{children}</DataContext.Provider>;
 };
 

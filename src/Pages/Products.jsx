@@ -1,19 +1,11 @@
-import { useEffect } from "react";
 import PageHeader from "../Components/PageHeader";
 import ProductsArchive from "../Components/ProductsArchive";
-import { useState } from "react";
-import { apiURL } from "../Contexts/GlobalContext";
+import { useContext } from "react";
+import { DataContext } from "../Contexts/DataContext";
 
 const Products = () => {
-  const [products, setProducts] = useState([]);
+  const { products } = useContext(DataContext);
 
-  useEffect(() => {
-    // product fetching
-    fetch(`${apiURL}/products`)
-      .then((res) => res.json())
-      .then((data) => setProducts(data))
-      .catch((error) => console.error(error));
-  }, []);
   return (
     <>
       <PageHeader title="Products" />
