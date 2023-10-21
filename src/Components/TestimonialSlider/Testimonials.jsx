@@ -22,7 +22,7 @@ const Testimonials = () => {
   });
 
   return (
-    <section className="flex flex-col-reverse">
+    <section className="flex flex-col-reverse lg:flex-row">
       <div
         style={{
           backgroundImage: `url(${testimonialBg})`,

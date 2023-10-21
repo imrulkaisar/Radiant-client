@@ -94,7 +94,10 @@ const Cart = () => {
               <p className="text-2xl text-center font-light">
                 Ops! No product in your cart! Please add some products first.
               </p>
-              <Link className="btn btn-primary" to="/products">
+              <Link
+                className="btn btn-primary dark:text-white dark:bg-primary dark:hover:bg-secondary dark:hover:text-primary"
+                to="/products"
+              >
                 Go to Products page
               </Link>
             </div>
