@@ -35,12 +35,12 @@ const BrandDetails = () => {
       <section className="py-16">
         <div className="container-area space-y-10">
           <div className="flex gap-10 items-center">
-            <img className="w-28" src={image} alt="" />
+            <img className="w-28 dark:bg-white dark:p-2" src={image} alt="" />
             <div className="space-y-4">
               <p className="text-lg">{description}</p>
               <Link
                 to={`/update-brand/${slug}`}
-                className="btn btn-primary py-2 inline-block"
+                className="btn btn-primary py-2 inline-block dark:border-white dark:text-white"
               >
                 Edit brand details
               </Link>
@@ -49,7 +49,7 @@ const BrandDetails = () => {
           <div className="divider bg-gray-300 h-[2px] my-5"></div>
           {/* Products */}
           <div className="space-y-8">
-            <h2 className="font-secondary text-3xl capitalize">
+            <h2 className="font-secondary text-3xl capitalize dark:text-white">
               {name} brand products
             </h2>
             {brandProducts.length > 0 ? (

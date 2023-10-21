@@ -75,7 +75,7 @@ const Login = () => {
         <p className="text-center py-10">
           Don't have an account? Please{" "}
           <Link
-            className="hover:text-secondary font-bold text-primary"
+            className="font-bold text-primary dark:text-white hover:text-secondary"
             to="/register"
           >
             Register here

@@ -29,7 +29,7 @@ const Home = () => {
   return (
     <>
       <Slider />
-      <section className="py-16">
+      <section className="py-16 dark:bg-gray-800">
         <div className="container-area grid grid-cols-6 gap-4">
           {brands.map((brand) => (
             <Brand
@@ -47,7 +47,7 @@ const Home = () => {
         <div className="container-area space-y-8">
           <div className="text-center space-y-3">
             <p className="sub-heading">Our shop</p>
-            <h2 className="section-heading">Top Products</h2>
+            <h2 className="section-heading dark:text-white">Top Products</h2>
           </div>
           <div>
             <ProductsArchive products={latesProducts} />

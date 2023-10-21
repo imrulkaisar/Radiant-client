@@ -8,22 +8,22 @@ import {
 const SocialIcons = ({ className }) => {
   return (
     <ul className={`flex gap-2 ${className}`}>
-      <li className="hover:text-primary">
+      <li className="hover:text-primary dark:hover:text-white">
         <a href="#" target="_blank">
           <FaFacebookF />
         </a>
       </li>
-      <li className="hover:text-primary">
+      <li className="hover:text-primary dark:hover:text-white">
         <a href="#" target="_blank">
           <FaSquareInstagram />
         </a>
       </li>
-      <li className="hover:text-primary">
+      <li className="hover:text-primary dark:hover:text-white">
         <a href="#" target="_blank">
           <FaWhatsapp />
         </a>
       </li>
-      <li className="hover:text-primary">
+      <li className="hover:text-primary dark:hover:text-white">
         <a href="#" target="_blank">
           <FaYoutube />
         </a>

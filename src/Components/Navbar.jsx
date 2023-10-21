@@ -23,7 +23,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="container-area py-2 flex justify-between items-center border-b">
+    <div className="container-area py-2 flex justify-between items-center border-b dark:text-white dark:border-transparent">
       <Logo />
       <div className="menu flex gap-5 uppercase font-medium text-sm tracking-wider">
         <NavLink to="/" className="hover:text-secondary">
@@ -39,7 +39,7 @@ const Navbar = () => {
       <div className="flex gap-6 items-center">
         <Link
           to="/add-product"
-          className="flex gap-2 items-center uppercase text-sm py-2 border-b border-primary hover:border-b-2"
+          className="flex gap-2 items-center uppercase text-sm py-2 border-b border-primary hover:border-b-2 dark:border-white"
         >
           <FiPlusCircle /> Add Product
         </Link>
@@ -47,7 +47,7 @@ const Navbar = () => {
           <Link to="/cart">
             <FiShoppingCart className="text-2xl" />
           </Link>
-          <span className="absolute -top-3 -right-2 bg-secondary px-1 rounded-full text-sm">
+          <span className="absolute -top-3 -right-2 bg-secondary px-1 rounded-full text-sm dark:text-primary">
             {cartItems.length}
           </span>
         </div>

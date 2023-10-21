@@ -109,8 +109,8 @@ const ProductDetails = () => {
             <img src={image} alt="" />
           </div>
           <div className="flex-1">
-            <h2 className="text-3xl pb-1">{name}</h2>
-            <div className="flex items-center gap-2">
+            <h2 className="text-3xl pb-1 dark:text-white">{name}</h2>
+            <div className="flex items-center gap-2 dark:text-white">
               <Rating
                 className="text-2xl"
                 initialRating={rating}
@@ -123,7 +123,7 @@ const ProductDetails = () => {
             <div className="brand text-right -mt-5">
               <Link to={`/brand/${productBrand.slug}`}>
                 <img
-                  className="w-14 p-2 border shadow-md rounded-md"
+                  className="w-14 p-2 border shadow-md rounded-md dark:bg-gray-300"
                   src={productBrand.image}
                   alt={productBrand.name}
                 />
@@ -131,7 +131,7 @@ const ProductDetails = () => {
             </div>
             <p className="max-w-sm py-3 text-lg">{description}</p>
             <div className="space-y-2">
-              <p className="price text-3xl font-secondary font-semibold pt-2 text-primary">
+              <p className="price text-3xl font-secondary font-semibold pt-2 text-primary dark:text-white">
                 ${price}
               </p>
               <p className="text-sm text-green-600">12 products in stock</p>

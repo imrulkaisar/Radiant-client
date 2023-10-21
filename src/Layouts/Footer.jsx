@@ -4,7 +4,7 @@ import SocialIcons from "../Components/SocialIcons";
 import { FiPhone, FiMail, FiMapPin, FiClock } from "react-icons/fi";
 import { contactInfo } from "../Contexts/GlobalContext";
 import { Link } from "react-router-dom";
-import bgStructure from "../assets/Images/bg-structure.png";
+// import bgStructure from "../assets/Images/bg-structure.png";
 import PreFooter from "../Components/PreFooter";
 
 const Footer = () => {
@@ -13,13 +13,13 @@ const Footer = () => {
       <PreFooter />
       <footer
         style={{
-          backgroundImage: `url(${bgStructure})`,
+          // backgroundImage: `url(${bgStructure})`,
           backgroundColor: "#ffffff",
           backgroundRepeat: "repeat",
           backgroundPosition: "center center",
           backgroundSize: "290px auto",
         }}
-        className="border-t pt-8"
+        className="border-t pt-8 bg-[url('https://tinyurl.com/4emfuwhz')] dark:bg-[url('https://tinyurl.com/4kr7vak9')]"
       >
         <div className="container-area bg-[rgba(0, 0, 0, 0.5)]">
           <div className="py-10 flex justify-between items-center">
@@ -55,7 +55,9 @@ const Footer = () => {
                 ingredients that are gentle, effective, and good for you and the
                 environment.
               </p>
-              <Link className="btn p-0 inline border-0">Read more</Link>
+              <Link className="btn p-0 inline border-0 dark:text-white">
+                Read more
+              </Link>
             </div>
           </div>
           <div className="flex justify-between text-sm pb-5">

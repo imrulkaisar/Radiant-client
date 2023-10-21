@@ -150,7 +150,7 @@ const Register = () => {
         <p className="text-center py-10">
           Already have an account? Please{" "}
           <Link
-            className="hover:text-secondary font-bold text-primary"
+            className="hover:text-secondary font-bold text-primary dark:text-white"
             to="/login"
           >
             Login here

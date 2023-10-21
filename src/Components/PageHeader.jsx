@@ -1,14 +1,9 @@
 import { Link } from "react-router-dom";
-import backgroundImg from "../assets/Images/page-header.bg.jpg";
+// import backgroundImg from "../assets/Images/page-header.bg.jpg";
 
 const PageHeader = ({ title, steps = [] }) => {
   return (
-    <div
-      style={{
-        backgroundImage: `url(${backgroundImg})`,
-      }}
-      className="bg-center flex justify-center items-center min-h-[200px]"
-    >
+    <div className="bg-[url('https://tinyurl.com/mr4bxj42')] dark:bg-[url('https://tinyurl.com/4kr7vak9')] bg-center flex justify-center items-center min-h-[200px]">
       <div className="container-area flex flex-col gap-5 justify-center items-center">
         <h1 className="text-white uppercase text-5xl tracking-[3px]">
           {title}

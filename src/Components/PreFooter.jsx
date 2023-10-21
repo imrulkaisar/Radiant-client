@@ -26,7 +26,7 @@ const PreFooter = () => {
   return (
     <div
       ref={sliderRef}
-      className="keen-slider text-center font-primary uppercase py-10 tracking-[2px]"
+      className="keen-slider text-center font-primary uppercase py-10 tracking-[2px] dark:bg-secondary"
     >
       <div className="keen-slider__slide min-w-max">Free Shipping</div>
       <div className="keen-slider__slide min-w-max">24/7 Support</div>

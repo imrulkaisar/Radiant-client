@@ -63,7 +63,7 @@ const Profile = () => {
               </li>
             </ul>
           </div>
-          <div className="content bg-white p-8 flex-1 space-y-8">
+          <div className="content bg-white p-8 flex-1 space-y-8 dark:bg-black">
             <img className="w-28" src={photoURL} alt="" />
             {/* table */}
             <div className="relative overflow-x-auto">

@@ -15,11 +15,14 @@ import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import PrivateRouter from "./PrivateRouter";
 import Contact from "../Pages/Contact";
+import NotFound from "../Layouts/404";
+import ErrorPage from "../Layouts/ErrorPage";
 
 const MainRouters = createBrowserRouter([
   {
     path: "/",
     element: <PageTemplate />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
@@ -108,6 +111,10 @@ const MainRouters = createBrowserRouter([
       {
         path: "/register",
         element: <Register />,
+      },
+      {
+        path: "*",
+        element: <NotFound />,
       },
     ],
   },
