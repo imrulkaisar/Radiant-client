@@ -17,7 +17,7 @@
 
 @layer components {
   .container-area {
-    @apply container mx-auto px-5 xl:px-0;
+    @apply container mx-auto px-5 max-w-7xl 2xl:px-0;
   }
   .btn {
     @apply flex gap-2 items-center justify-center font-primary uppercase font-light text-sm tracking-widest border border-primary px-7 py-3;
